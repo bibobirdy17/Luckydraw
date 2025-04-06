@@ -88,6 +88,33 @@
 
   <!-- 表單送出功能 -->
   <script>
+  // ✅ 截止時間設定
+  const deadline = new Date("2025-04-11T23:59:59");
+  const countdownEl = document.getElementById("countdown");
+  const formEl = document.getElementById("google-form");
+  
+  // ✅ 更新倒數計時
+  function updateCountdown() {
+    const now = new Date();
+    const diff = deadline - now;
+  
+    if (diff <= 0) {
+      countdownEl.innerHTML = "❌ 報名已截止";
+      if (formEl) formEl.style.display = "none"; // 隱藏表單
+      return;
+    }
+  
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+  
+    countdownEl.innerHTML = `⏳ 報名倒數：${hours} 小時 ${minutes} 分 ${seconds} 秒`;
+  }
+  
+  // ✅ 每秒更新一次
+  setInterval(updateCountdown, 1000);
+  updateCountdown(); // 初始化一次
+
     $('#google-form').submit(function (e) {
       e.preventDefault();
 
