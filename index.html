@@ -1,164 +1,157 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>比比波波可愛小舖</title>
-  <style>
-    body {
-      font-family: "Microsoft JhengHei", sans-serif;
-      background-color: #fff0f5;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      text-align: center;
-      background-color: #ffb6c1;
-      padding: 20px;
-      font-size: 28px;
-      color: #fff;
-      font-weight: bold;
-    }
-    .productList {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .products-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 16px;
-      padding: 20px;
-    }
-    .product-card {
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      padding: 16px;
-      text-align: center;
-    }
-    .product-card img {
-      max-width: 100%;
-      border-radius: 12px;
-    }
-    .product-card h3 {
-      margin: 12px 0 8px;
-    }
-    .product-card .price {
-      color: #ff69b4;
-      font-weight: bold;
-      margin-bottom: 12px;
-    }
-    .form-section {
-      padding: 20px;
-      background: #fff;
-      margin: 20px;
-      border-radius: 16px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    .form-section input {
-      width: 100%;
-      padding: 8px;
-      margin-bottom: 12px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-    }
-    .submit-btn {
-      background-color: #ff69b4;
-      color: #fff;
-      border: none;
-      padding: 10px 16px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-  </style>
+  <title>餐後回饋</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--===============================================================================================-->
+  <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="css/util.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <!--===============================================================================================-->
 </head>
+
 <body>
-  <header>比比波波可愛小舖</header>
-  <div class="products-container" id="products"></div>
+  <div class="container-contact100">
+    <div class="wrap-contact100">
+      <form id="google-form" class="contact100-form validate-form">
+        <span class="contact100-form-title">
+          抽獎報名
+        </span>
 
-  <div class="form-section">
-    <h2>結帳資訊</h2>
-    <input type="text" id="name" placeholder="姓名" required />
-    <input type="email" id="email" placeholder="Email" required />
-    <input type="number" id="payment" placeholder="匯款金額" required />
-    <input type="text" id="bankcode" placeholder="銀行末五碼" required />
-    <button class="submit-btn" onclick="submitOrder()">送出訂單</button>
+        <label class="label-input100" for="nickname">暱稱 *</label>
+        <div class="wrap-input100 validate-input" data-validate="暱稱為必填">
+          <input id="nickname" class="input100" type="text" placeholder="輸入暱稱">
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="container-contact100-form-btn">
+          <button class="contact100-form-btn" type="submit">
+            送出
+          </button>
+        </div>
+      </form>
+
+      <div class="contact100-more flex-col-c-m" style="background-image: url('images/bg-01.jpg');">
+        <div class="flex-col size2 p-t-60">
+          <span class="txt1 p-b-20">歡迎參加抽獎活動！</span>
+          <span class="txt2">請輸入您的暱稱，我們將從中抽出幸運得主！</span>
+        </div>
+      </div>
+    </div>
   </div>
-  
-  <script src="script.js"></script>
-<script>
-const sheetURL = "https://opensheet.elk.sh/1_im8HX0bpHQcoFXwwLINBEp7Q0CqYiDDLFh2HcTeVp0/Products";
-const orderEndpoint = "https://script.google.com/macros/s/AKfycbxEKdZli-slc8kH4i_EBeufd1NxpU7NKtLWA8wUiRUI7lgPz4iplm6ylyQJdINtf4-_/exec";
 
-const productList = document.getElementById("productList");
+  <div id="dropDownSelect1"></div>
 
-async function loadProducts() {
-  try {
-    const res = await fetch(sheetURL);
-    const products = await res.json();
-
-    if (!Array.isArray(products)) throw new Error("Product data is not array");
-
-    productList.innerHTML = ""; // 清空
-
-    products.forEach((product, index) => {
-      const card = document.createElement("div");
-      card.className = "product-card";
-
-      card.innerHTML = `
-        <img src="${product.圖片網址}" alt="${product.名稱}" />
-        <h3>${product.名稱}</h3>
-        <p>價格：$${product.價格}</p>
-        <label>數量：
-          <input type="number" min="0" value="0" data-name="${product.名稱}" data-price="${product.價格}" />
-        </label>
-      `;
-      productList.appendChild(card);
+  <!-- 原有 script 區照舊，可保留樣式與功能 -->
+  <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+  <script src="vendor/animsition/js/animsition.min.js"></script>
+  <script src="vendor/bootstrap/js/popper.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="vendor/select2/select2.min.js"></script>
+  <script>
+    $(".selection-2").select2({
+      minimumResultsForSearch: 20,
+      dropdownParent: $('#dropDownSelect1')
     });
-  } catch (err) {
-    console.error("載入商品失敗：", err);
-  }
-}
+  </script>
+  <script src="vendor/daterangepicker/moment.min.js"></script>
+  <script src="vendor/daterangepicker/daterangepicker.js"></script>
+  <script src="vendor/countdowntime/countdowntime.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    $('#google-form').submit(function (e) {
+      e.preventDefault();
 
-document.getElementById("orderForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const payment = document.getElementById("payment").value.trim();
-  const bank = document.getElementById("bank").value.trim();
-
-  const products = [...document.querySelectorAll("input[type='number']")];
-  const items = products
-    .filter(p => parseInt(p.value) > 0)
-    .map(p => ({
-      name: p.dataset.name,
-      quantity: parseInt(p.value),
-      price: parseInt(p.dataset.price),
-      subtotal: parseInt(p.value) * parseInt(p.dataset.price)
-    }));
-
-  const total = items.reduce((sum, item) => sum + item.subtotal, 0);
-
-  const orderData = {
-    姓名: name,
-    Email: email,
-    匯款金額: payment,
-    銀行末五碼: bank,
-    購買明細: items.map(i => `${i.name} x${i.quantity}`).join(", "),
-    總金額: total
-  };
-
-  try {
-    const res = await fetch(orderEndpoint, {
-      method: "POST",
-      body: JSON.stringify(orderData),
-      headers: { "Content-Type": "application/json" }
+      if ($('#nickname').val()) {
+        $.ajax({
+          url: "https://docs.google.com/forms/d/e/1FAIpQLSeijRuLDQE62gbapDYgd_3pbmg7GyWY1CWPVeaEK-TiLDKzPw/formResponse",
+          crossDomain: true,
+          data: {
+            "entry.2040133429": $('#nickname').val() // ⚠️ 請替換成你表單的 entry ID
+          },
+          type: "POST",
+          dataType: "JSONP",
+          complete: function () {
+            $('#nickname').val('')
+            alert("報名成功！");
+          }
+        });
+      }
     });
-
-    if (res.ok)
-
+  </script>
 </body>
+
+
+
+
+  <div id="dropDownSelect1"></div>
+
+  <!--===============================================================================================-->
+  <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="vendor/animsition/js/animsition.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="vendor/bootstrap/js/popper.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="vendor/select2/select2.min.js"></script>
+  <script>
+    $(".selection-2").select2({
+      minimumResultsForSearch: 20,
+      dropdownParent: $('#dropDownSelect1')
+    });
+  </script>
+  <!--===============================================================================================-->
+  <script src="vendor/daterangepicker/moment.min.js"></script>
+  <script src="vendor/daterangepicker/daterangepicker.js"></script>
+  <!--===============================================================================================-->
+  <script src="vendor/countdowntime/countdowntime.js"></script>
+  <!--===============================================================================================-->
+  <script src="js/main.js"></script>
+  <script>
+    $('#google-form').submit(function (e) {
+      //在這裡我們要先擋掉form默認事件
+      e.preventDefault();
+
+      if ($('#name').val() && $('#score').val()) {//需要先確認必填欄位是否填寫
+        $.ajax({
+          // url為Google Form按下submit的aciotn
+          url: "https://docs.google.com/forms/d/e/1FAIpQLScO7oArWiXokQqw-7Fgxa0b_KVj-72VUG1aHv5HSmaNhIR25A/formResponse",
+          crossDomain: true,//解決跨網域CORS的問題
+          data: {// entry.xxxxx 這些需要填寫您表單裡面的值，與其相互對應
+            "entry.1071880591": $('#name').val(),
+          },
+          type: "POST", //因為是要進行insert的動作，故事用POST
+          dataType: "JSONP",
+          complete: function () {
+            //完成後把這些欄位清空
+            $('#name').val('')
+            //最後跳轉到感謝的頁面
+            window.location.replace("thank.html");
+          }
+        });
+      }
+    });
+  </script>
+</body>
+
 </html>
