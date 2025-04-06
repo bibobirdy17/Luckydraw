@@ -1,37 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="zh-Hant">
 <head>
-  <title>餐後回饋</title>
   <meta charset="UTF-8">
+  <title>抽獎報名</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--===============================================================================================-->
-  <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="css/util.css">
-  <link rel="stylesheet" type="text/css" href="css/main.css">
-  <!--===============================================================================================-->
-</head>
-
-<body>
+  <link rel="icon" href="images/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animsition@4.0.2/dist/css/animsition.min.css" />
+  <link rel="stylesheet" href="css/custom.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
   <div class="container-contact100">
-    <div class="wrap-contact100">
+    <div class="wrap-contact100 animsition">
       <form id="google-form" class="contact100-form validate-form">
-        <span class="contact100-form-title">
-          抽獎報名
-        </span>
+        <span class="contact100-form-title">抽獎報名</span>
 
-        <label class="label-input100" for="nickname">暱稱 *</label>
+        <label class="label-input100">暱稱 *</label>
         <div class="wrap-input100 validate-input" data-validate="暱稱為必填">
           <input id="nickname" class="input100" type="text" placeholder="輸入暱稱">
           <span class="focus-input100"></span>
         </div>
 
         <div class="container-contact100-form-btn">
-          <button class="contact100-form-btn" type="submit">
-            送出
-          </button>
+          <button class="contact100-form-btn" type="submit">送出</button>
         </div>
       </form>
 
@@ -43,78 +36,7 @@
       </div>
     </div>
   </div>
-
-  <div id="dropDownSelect1"></div>
-
-  <!-- 原有 script 區照舊，可保留樣式與功能 -->
-  <script>
-    $(".selection-2").select2({
-      minimumResultsForSearch: 20,
-      dropdownParent: $('#dropDownSelect1')
-    });
-  </script>
-  <script src="js/main.js"></script>
-  <script>
-    $('#google-form').submit(function (e) {
-      e.preventDefault();
-
-      if ($('#nickname').val()) {
-        $.ajax({
-          url: "https://docs.google.com/forms/d/e/1FAIpQLSeijRuLDQE62gbapDYgd_3pbmg7GyWY1CWPVeaEK-TiLDKzPw/formResponse",
-          crossDomain: true,
-          data: {
-            "entry.1071880591": $('#nickname').val() // ⚠️ 請替換成你表單的 entry ID
-          },
-          type: "POST",
-          dataType: "JSONP",
-          complete: function () {
-            $('#nickname').val('')
-            alert("報名成功！");
-          }
-        });
-      }
-    });
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/animsition@4.0.2/dist/js/animsition.min.js"></script>
+  <script src="js/custom.js"></script>
 </body>
-
-
-
-
-  <div id="dropDownSelect1"></div>
-
-  <script>
-    $(".selection-2").select2({
-      minimumResultsForSearch: 20,
-      dropdownParent: $('#dropDownSelect1')
-    });
-  </script>
-  <!--===============================================================================================-->
-  <script src="js/main.js"></script>
-  <script>
-    $('#google-form').submit(function (e) {
-      //在這裡我們要先擋掉form默認事件
-      e.preventDefault();
-
-      if ($('#name').val() && $('#score').val()) {//需要先確認必填欄位是否填寫
-        $.ajax({
-          // url為Google Form按下submit的aciotn
-          url: "https://docs.google.com/forms/d/e/1FAIpQLScO7oArWiXokQqw-7Fgxa0b_KVj-72VUG1aHv5HSmaNhIR25A/formResponse",
-          crossDomain: true,//解決跨網域CORS的問題
-          data: {// entry.xxxxx 這些需要填寫您表單裡面的值，與其相互對應
-            "entry.1071880591": $('#name').val(),
-          },
-          type: "POST", //因為是要進行insert的動作，故事用POST
-          dataType: "JSONP",
-          complete: function () {
-            //完成後把這些欄位清空
-            $('#name').val('')
-            //最後跳轉到感謝的頁面
-            window.location.replace("thank.html");
-          }
-        });
-      }
-    });
-  </script>
-</body>
-
 </html>
