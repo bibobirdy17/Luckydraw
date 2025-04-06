@@ -7,69 +7,11 @@
   <link rel="stylesheet" href="css/util.css">
   <link rel="stylesheet" href="css/main.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-  <style>
-    .description-block {
-      position: relative;
-      width: 100%;
-      text-align: center;
-      color: white;
-      margin-bottom: 20px;
-    }
-
-    .description-bg {
-      background-image: url('images.jpg');
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      padding: 40px 20px;
-    }
-
-    .description-bg::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0, 0, 0, 0.3); /* 降低黑色透明度 */
-      z-index: 1;
-    }
-
-    .description-text {
-      position: relative;
-      z-index: 2;
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
-    .contact100-form-btn {
-      background-color: #d8b4f8 !important; /* 淺紫色 */
-      color: white !important;
-      border-radius: 8px;
-      transition: background 0.3s ease;
-    }
-
-    .contact100-form-btn:hover {
-      background-color: #c084fc !important; /* hover 深一點 */
-    }
-  </style>
 </head>
 <body>
 
   <div class="container-contact100">
     <div class="wrap-contact100">
-
-      <!-- 說明區塊移到上面 -->
-      <div class="description-block">
-        <div class="description-bg">
-          <div class="description-text">
-            <p>這次的獎品是kms的上岸短髮冬~(有損)</p>
-            <p>請注意您填入的姓名一定要跟社群內的相同，否則抽獎作廢給下一位</p>
-            <p>會開20賣貨便內退20，若有跟我交易過則內退58❤️</p>
-            <p>很感謝各位的支持與信任!</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- 表單區塊 -->
       <form id="google-form" class="contact100-form validate-form">
         <span class="contact100-form-title">參加抽獎</span>
 
@@ -84,6 +26,14 @@
         </div>
       </form>
 
+      <div class="contact100-more flex-col-c-m" style="background-image: url('images.jpg');">
+        <div class="flex-col size2 p-t-55">
+          <span class="txt2">這次的獎品是kms的上岸短髮冬~(有損)</span>
+          <span class="txt2">請注意您填入的姓名一定要跟社群內的相同，否則抽獎作廢給下一位</span>
+          <span class="txt2">會開20賣貨便內退20，若有跟我交易過則內退58❤️</span>
+          <span class="txt2">很感謝各位的支持與信任!</span>
+        </div>
+      </div>
     </div>
   </div>
 
