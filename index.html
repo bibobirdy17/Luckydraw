@@ -7,59 +7,62 @@
   <link rel="stylesheet" href="css/util.css">
   <link rel="stylesheet" href="css/main.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-  <style>
-  .contact100-more {
-    position: relative;
-    color: white;
-  }
-  .contact100-more::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
-    z-index: 0;
-  }
-  .contact100-more .flex-col {
-    position: relative;
-    z-index: 1;
-  }
-  .contact100-more .txt2 {
-    color: white;
-    text-align: center;
-  }
 
+  <!-- ✅ 所有自定義樣式放這裡 -->
+  <style>
+    .contact100-more {
+      position: relative;
+      color: white;
+    }
+    .contact100-more::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      z-index: 0;
+    }
+    .contact100-more .flex-col {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100%;
+    }
+    .contact100-more .txt2 {
+      color: white;
+      text-align: center;
+    }
+    .contact100-form-btn {
+      background: linear-gradient(45deg, #6e46ae, #d7a9f9);
+      color: white;
+      transition: background 0.3s ease;
+    }
+    .contact100-form-btn:hover {
+      background: linear-gradient(45deg, #5a3794, #c693f0);
+    }
   </style>
 </head>
-
-
-  .contact100-form-btn {
-    background: linear-gradient(45deg, #6e46ae, #d7a9f9);
-    color: white;
-    transition: background 0.3s ease;
-  }
-  .contact100-form-btn:hover {
-    background: linear-gradient(45deg, #5a3794, #c693f0);
-  }
-</style>
 
 <body>
   <div class="container-contact100">
     <div class="wrap-contact100">
 
-      <!-- 抽獎說明區塊：先放左邊 -->
+      <!-- 抽獎說明區塊 -->
       <div class="contact100-more flex-col-c-m" style="background-image: url('images.jpg');">
         <div class="flex-col size2 p-t-55">
-          <span class="txt2">這次的獎品是kms的上岸短髮冬~(有損)</span>
+          <span class="txt2">這次的獎品是 kms 的上岸短髮冬～（有損）</span>
           <span class="txt2">請注意您填入的姓名需和社群內的相同，否則抽獎作廢給下一位</span>
-          <span class="txt2">會開20賣貨便內退20</span>
-          <span class="txt2">若有跟我交易過則內退58❤️</span>
-          <span class="txt2">很感謝各位的支持與信任!</span>
+          <span class="txt2">會開 20 賣貨便內退 20</span>
+          <span class="txt2">若有跟我交易過則內退 58 ❤️</span>
+          <span class="txt2">很感謝各位的支持與信任！</span>
         </div>
       </div>
 
-      <!-- 表單區塊：移到右邊 -->
+      <!-- 表單區塊 -->
       <form id="google-form" class="contact100-form validate-form">
         <span class="contact100-form-title">參加抽獎</span>
 
@@ -74,10 +77,8 @@
         </div>
       </form>
 
-      </div>
     </div>
   </div>
-</div>
 
   <!-- 表單送出功能 -->
   <script>
