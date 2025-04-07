@@ -91,11 +91,6 @@
         alert("請輸入暱稱");
         return;
       }
-        
-      if (registeredNicknames.includes(nickname)) {
-    alert("⚠️ 您已經報名過囉！");
-    return;
-      }
 
       $.ajax({
         url: "https://docs.google.com/forms/d/e/1FAIpQLScO7oArWiXokQqw-7Fgxa0b_KVj-72VUG1aHv5HSmaNhIR25A/formResponse",
