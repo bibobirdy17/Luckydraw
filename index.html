@@ -2,6 +2,15 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
+  <script>
+    // 設定截止時間（請根據需求修改）
+    const deadline = new Date("2025-04-12T00:00:00+08:00"); // 這裡是台灣時間 14:00
+
+    if (new Date() > deadline) {
+      window.location.href = "timesup.html";
+    }
+  </script>
+
   <title>Arwen抽獎回饋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/util.css">
